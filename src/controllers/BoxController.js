@@ -4,7 +4,7 @@ class BoxController {
   async store(req, res) {
     const box = await Box.create({ title: req.body.title });
 
-    return res.send("Recurso criado");
+    return res.json(box);
   }
 
   async show(req, res) {
