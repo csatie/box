@@ -16,10 +16,13 @@ io.on("connection", socket => {
   });
 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/mongobox", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  "mongodb+srv://box:camilabox@box-kyea6.mongodb.net/test?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 app.use((req, res, next) => {
   req.io = io;
