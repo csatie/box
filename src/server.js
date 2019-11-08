@@ -16,13 +16,14 @@ io.on("connection", socket => {
   });
 });
 
-mongoose.connect(
-  "mongodb+srv://box:camilabox@box-kyea6.mongodb.net/test?retryWrites=true&w=majority",
-  {
+const uri =
+  "mongodb+srv://box:camilabox@box-kyea6.mongodb.net/test?retryWrites=true&w=majority";
+mongoose
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  }
-);
+  })
+  .catch(err => console.log(err));
 
 app.use((req, res, next) => {
   req.io = io;
